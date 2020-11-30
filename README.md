@@ -36,3 +36,27 @@ npm install vuex --save
 
 npm install aixos --save
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//hosting
+npm install -g firebase-tools
+firebase login
+firebase init
+   hosting => exist ~~ => What do you want to use as your public directory? dist
+firebase deploy
+
