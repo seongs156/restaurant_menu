@@ -33,7 +33,14 @@ const routes = [
       layout: 'UserLayout'
     }
   },
-
+  {
+    path: '/menu_register',
+    name: 'MenuRegister',
+    component: () => import('@/components/restaurant/MenuRegister'),
+    meta: {
+      layout: 'UserLayout'
+    }
+  },
 ];
 
 export default routes

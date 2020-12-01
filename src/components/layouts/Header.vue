@@ -9,6 +9,7 @@
           <li class="category">
             <router-link :to="{ name: 'RestaurantList'}">매장 리스트</router-link>
             <router-link :to="{ name: 'RestaurantRegister'}">매장 등록</router-link>
+            <router-link :to="{ name: 'MenuRegister'}">메뉴 등록</router-link>
           </li>
 <!--          <li class="category">-->
 <!--            <router-link :to="{ name: 'todo'}">할일</router-link>-->
@@ -18,6 +19,7 @@
 <!--          </li>-->
         </ul>
         <ul>
+
 <!--          <li class="category" v-if="!loggedIn">-->
 <!--            <router-link :to="{ name: 'login'}">로그인</router-link>-->
 <!--          </li>-->

@@ -21,7 +21,12 @@
                    @keydown.space.prevent id="shop" minlength="3" maxlength="20"  class="login-input form-control" v-model="shop">
           <span  class="form-error">{{ errors[0] }}</span>
         </ValidationProvider>
-
+        <ValidationProvider name="매장코드" rules="required|min:2|max:15" vid="shopCode" v-slot="{ errors }">
+          <label for="shop">매장코드<span class="validate-required">*</span></label>
+          <input type="text"
+                 @keydown.space.prevent id="shopCode" minlength="3" maxlength="20"  class="login-input form-control" v-model="shopCode">
+          <span  class="form-error">{{ errors[0] }}</span>
+        </ValidationProvider>
         <div class="address-box-wrap">
 
           <label for="name">연락처<span class="validate-required">*</span></label>
@@ -37,6 +42,8 @@
                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                  maxlength = "4" min="1" max="9999">
         </div>
+
+
 
         <ValidationProvider name="비밀번호" rules="required|min:4|max:15" vid="password" v-slot="{ errors }">
           <label for="password">비밀번호<span class="validate-required">*</span></label>
@@ -111,6 +118,7 @@ export default {
   data() {
     return {
       shop: '',
+      shopCode: '',
       password: '',
       confirm_password: '',
       tel: '',
@@ -146,6 +154,7 @@ export default {
       this.tel = this.tel1+this.tel2+this.tel3;
       this.$store.dispatch('restaurant/register', {
           'shop': this.shop,
+          'shopCode': this.shopCode,
           'password': this.password,
           'zip': this.zip,
           'address1': this.address1,

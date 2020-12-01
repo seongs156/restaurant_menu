@@ -87,6 +87,7 @@ export default {
       console.log(restaurant);
       db.collection('restaurant').add({
         'shop': restaurant.shop,
+        'shopCode': restaurant.shopCode,
         'breakfast_menu':'',
         'lunch_menu':'',
         'dinner_menu':'',
@@ -124,6 +125,38 @@ export default {
       //   .catch(error => {
       //     console.log(error)
       //   })
+    },
+    shopCodeSelect(context,shopCode) {
+      var message = false;
+      return new Promise((resolve, reject) => {
+        db.collection("restaurant").where("shopCode", "==", shopCode)
+          .get()
+          .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+              // doc.data() is never undefined for query doc snapshots
+              // console.log(doc.id, " => ", doc.data());
+              if(doc.id){
+                message = true;
+              }
+              resolve({
+                message:message,
+                id:doc.id,
+                data: doc.data()
+              });
+            });
+            if(!message){
+              resolve({
+                message:message,
+              });
+            }
+          })
+          .catch(function (error) {
+            console.log(11);
+            reject(error);
+            // console.log("Error getting documents: ", error);
+          });
+      });
+
     },
     retrieveRestaurant(context){
       context.state.loading = true
