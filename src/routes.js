@@ -10,7 +10,7 @@ const routes = [
     }
   },
   {
-    path: '/',
+    path: '/register',
     name: 'RestaurantRegister',
     component: () => import('@/components/restaurant/RestaurantRegister'),
     meta: {
@@ -21,6 +21,14 @@ const routes = [
     path: '/address',
     name: 'Address',
     component: () => import('@/components/common/Address'),
+    meta: {
+      layout: 'UserLayout'
+    }
+  },
+  {
+    path: '/',
+    name: 'RestaurantList',
+    component: () => import('@/components/restaurant/RestaurantList'),
     meta: {
       layout: 'UserLayout'
     }

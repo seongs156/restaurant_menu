@@ -130,6 +130,7 @@ export const store = new Vuex.Store({
           context.commit('retrieveTodos', tempTodoSorted)
         })
     },
+
     addTodo(context, todo) {
       db.collection('todos').add({
         title: todo.title,

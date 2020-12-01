@@ -9,6 +9,7 @@ export default {
     todos: [],
     loginRemember : localStorage.getItem('loginRemember'),
     token: this.loginRemember === 'Y' ? localStorage.getItem('access_token') : sessionStorage.getItem('access_token'),
+    restaurants: []
   },
   mutations: {
     RETRIEVE_TOKEN(state, data) {
@@ -51,6 +52,9 @@ export default {
     },
     CLEAR_TODOS(state) {
       state.todos = []
+    },
+    RETRIEVE_RESTAURANTS(state, restaurants){
+      state.restaurants = restaurants
     }
   },
   actions: {
@@ -121,6 +125,30 @@ export default {
       //     console.log(error)
       //   })
     },
+    retrieveRestaurant(context){
+      context.state.loading = true
+      db.collection('restaurant').get()
+        .then(querySnapshot => {
+          let tempRestaurants = []
+          querySnapshot.forEach(doc =>{
+            // console.log(doc.data())
+            const data = {
+              id: doc.id,
+              shop: doc.data().shop,
+              timestamp: doc.data().timestamp,
+            }
+            console.log(data);
+            tempRestaurants.push(data)
+          })
+          context.state.loading = false
+          const tempRestaurantSorted = tempRestaurants.sort((a,b) => {
+
+            return a.timestamp.seconds - b.timestamp.seconds
+          })
+
+          context.commit('RETRIEVE_RESTAURANTS', tempRestaurantSorted)
+        })
+    },
     updateTodo(context, todo) {
       axios.patch('/todos/' + todo.id, {
         title: todo.title,
@@ -179,7 +207,7 @@ export default {
   },
   getters: {
     remaining(state) {
-      return state.todos.filter(todo => !todo.completed).length
+      return state.restaurants
     },
     anyRemaining(state, getters) {
       return getters.remaining != 0

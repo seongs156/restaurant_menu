@@ -7,7 +7,8 @@
       <div class="container" id="nav-wrap">
         <ul>
           <li class="category">
-            <router-link :to="{ name: 'register'}">매장등록</router-link>
+            <router-link :to="{ name: 'RestaurantList'}">매장 리스트</router-link>
+            <router-link :to="{ name: 'RestaurantRegister'}">매장 등록</router-link>
           </li>
 <!--          <li class="category">-->
 <!--            <router-link :to="{ name: 'todo'}">할일</router-link>-->
