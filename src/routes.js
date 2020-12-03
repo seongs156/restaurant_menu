@@ -41,6 +41,14 @@ const routes = [
       layout: 'UserLayout'
     }
   },
+  {
+    path: '/menu_view/:id',
+    name: 'MenuView',
+    component:() => import('@/components/restaurant/MenuView'),
+    meta: {
+      layout: 'UserLayout'
+    }
+  },
 ];
 
 export default routes

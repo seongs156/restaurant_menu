@@ -83,14 +83,26 @@ export default {
           console.log(error)
         })
     },
+    addMenu(context, menu) {
+      db.collection('restaurant').doc(menu.id).set({
+        breakfastMenu : menu.breakfastMenu,
+        lunchMenu : menu.lunchMenu,
+        dinnerMenu : menu.dinnerMenu,
+        // timestamp: new Date(),
+      }, { merge:true })
+        .then(response => {
+          console.log(response);
+        })
+      // console.log(menu);
+    },
     register(context, restaurant) {
       console.log(restaurant);
       db.collection('restaurant').add({
         'shop': restaurant.shop,
         'shopCode': restaurant.shopCode,
-        'breakfast_menu':'',
-        'lunch_menu':'',
-        'dinner_menu':'',
+        'breakfastMenu':'',
+        'lunchMenu':'',
+        'dinnerMenu':'',
         'password': restaurant.password,
         'zip': restaurant.zip,
         'address1': restaurant.address1,
@@ -168,6 +180,18 @@ export default {
             const data = {
               id: doc.id,
               shop: doc.data().shop,
+              address1: doc.data().address1,
+              address2: doc.data().address2,
+              shopCode: doc.data().shopCode,
+              password: doc.data().password,
+              zip: doc.data().zip,
+              tel: doc.data().tel,
+              breakfastTime:doc.data().breakfastTime,
+              launchTime:doc.data().launchTime,
+              dinnerTime:doc.data().dinnerTime,
+              breakfastMenu:doc.data().breakfastMenu,
+              lunchMenu:doc.data().lunchMenu,
+              dinnerMenu:doc.data().dinnerMenu,
               timestamp: doc.data().timestamp,
             }
             console.log(data);
@@ -257,6 +281,10 @@ export default {
     },
     showClearCompletedButton(state) {
       return state.todos.filter(todo => todo.completed).length > 0
+    },
+    idRemaining(state,id) {
+      console.log(id);
+      // return state.restaurants
     },
   }
 }

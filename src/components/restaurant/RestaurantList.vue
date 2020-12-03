@@ -2,7 +2,9 @@
   <div>
     <b-card-group deck>
       <b-card bg-variant="primary" text-variant="white" :header="restaurant.shop" class="text-center" v-for="restaurant in remaining" :key="restaurant.id">
-        <b-card-text><a href="#">상세보기</a></b-card-text>
+        <b-card-text>
+          <a :href="`menu_view/${restaurant.id}`">상세보기</a>
+        </b-card-text>
       </b-card>
     </b-card-group>
   </div>
