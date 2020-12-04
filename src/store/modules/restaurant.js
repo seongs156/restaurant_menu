@@ -138,6 +138,49 @@ export default {
       //     console.log(error)
       //   })
     },
+    retrieveMenus(context,id) {
+      var message = false;
+      var docRef = db.collection("restaurant").doc(id);
+      return new Promise((resolve, reject) => {
+
+        docRef.get().then(function(doc) {
+          if (doc.exists) {
+            message = true;
+            resolve({
+              message:message,
+              data: doc.data()
+            });
+          } else {
+            // doc.data() will be undefined in this case
+            resolve({
+              message:message,
+            });
+          }
+        }).catch(function(error) {
+          console.log("Error getting document:", error);
+        });
+      });
+
+
+
+
+
+
+
+      // var message = false;
+      //   db.collection('todos').doc(id).get().then(function(doc) {
+      //     if (doc.exists) {
+      //       console.log("Document data:", doc.data());
+      //     } else {
+      //       // doc.data() will be undefined in this case
+      //       console.log("No such document!");
+      //     }
+      //   }).catch(function(error) {
+      //     console.log("Error getting document:", error);
+      //   });
+      // });
+
+    },
     shopCodeSelect(context,shopCode) {
       var message = false;
       return new Promise((resolve, reject) => {

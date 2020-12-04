@@ -84,7 +84,7 @@
     data() {
       return {
         currentStep: 1,
-        shopCode: 'lck050',
+        shopCode: '',
         timestamp: '',
         id:'',
         shop:'',
@@ -95,7 +95,6 @@
       }
     },
     created() {
-      this.shopCodeSelect();
     },
     methods: {
       shopCodeSelect() {
