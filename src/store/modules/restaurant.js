@@ -84,42 +84,56 @@ export default {
         })
     },
     addMenu(context, menu) {
-      db.collection('restaurant').doc(menu.id).set({
+      var message;
+      return new Promise((resolve, reject) => {
+        db.collection('restaurant').doc(menu.id).set({
         breakfastMenu : menu.breakfastMenu,
         lunchMenu : menu.lunchMenu,
         dinnerMenu : menu.dinnerMenu,
+        timestamp : menu.timestamp,
         // timestamp: new Date(),
       }, { merge:true })
         .then(response => {
-          console.log(response);
-        })
-      // console.log(menu);
+          message = true;
+          resolve(message);
+          // console.log(response);
+        }).catch(function(error) {
+          message = false
+          reject(message);
+          // console.log("Error getting document:", error);
+        });
+      });
     },
     register(context, restaurant) {
-      console.log(restaurant);
-      db.collection('restaurant').add({
-        'shop': restaurant.shop,
-        'shopCode': restaurant.shopCode,
-        'breakfastMenu':'',
-        'lunchMenu':'',
-        'dinnerMenu':'',
-        'password': restaurant.password,
-        'zip': restaurant.zip,
-        'address1': restaurant.address1,
-        'address2': restaurant.address2,
-        'tel': restaurant.tel,
-        'breakfastTime':restaurant.breakfastTime,
-        'launchTime':restaurant.launchTime,
-        'dinnerTime':restaurant.dinnerTime,
-        timestamp: new Date(),
-      })
-        .then(docRef => {
-          console.log(docRef);
-          // context.commit('addRestaurant',{
-          //   id: docRef.id,
-            // title: change.doc.data().title,
-          // })
+      // console.log(restaurant);
+      var message;
+      return new Promise((resolve, reject) => {
+        db.collection('restaurant').add({
+          'shop': restaurant.shop,
+          'shopCode': restaurant.shopCode,
+          'breakfastMenu': '',
+          'lunchMenu': '',
+          'dinnerMenu': '',
+          'password': restaurant.password,
+          'zip': restaurant.zip,
+          'address1': restaurant.address1,
+          'address2': restaurant.address2,
+          'tel': restaurant.tel,
+          'breakfastTime': restaurant.breakfastTime,
+          'launchTime': restaurant.launchTime,
+          'dinnerTime': restaurant.dinnerTime,
+          timestamp: new Date(),
         })
+          .then(docRef => {
+            if (docRef.id) {
+              message = true;
+              resolve(message);
+            } else {
+              message = false;
+              resolve(message);
+            }
+          })
+      });
       //
       //
       //
@@ -220,6 +234,18 @@ export default {
           let tempRestaurants = []
           querySnapshot.forEach(doc =>{
             // console.log(doc.data())
+            var timestamp = doc.data().timestamp.seconds * 1000;
+            var shopDate = new Date(timestamp);
+            var nowDate = new Date();
+            var shopDateConvert =  shopDate.getFullYear()+'-'+(shopDate.getMonth()+1)+'-'+shopDate.getDate();
+            var nowDateConvert =  nowDate.getFullYear()+'-'+(nowDate.getMonth()+1)+'-'+nowDate.getDate();
+            var dateUpdate;
+
+            if(nowDateConvert == shopDateConvert){
+               dateUpdate = true;
+            } else {
+              dateUpdate = false;
+            }
             const data = {
               id: doc.id,
               shop: doc.data().shop,
@@ -236,8 +262,8 @@ export default {
               lunchMenu:doc.data().lunchMenu,
               dinnerMenu:doc.data().dinnerMenu,
               timestamp: doc.data().timestamp,
+              dateUpdate: dateUpdate
             }
-            console.log(data);
             tempRestaurants.push(data)
           })
           context.state.loading = false

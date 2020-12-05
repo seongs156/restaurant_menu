@@ -148,9 +148,6 @@ export default {
   },
   methods: {
     register() {
-      console.log(this.zip);
-      console.log(this.address1);
-      console.log(this.address2);
       this.tel = this.tel1+this.tel2+this.tel3;
       this.$store.dispatch('restaurant/register', {
           'shop': this.shop,
@@ -163,36 +160,21 @@ export default {
           'breakfastTime':this.breakfastOpening+'~'+this.breakfastClosing,
           'launchTime':this.launchOpening+'~'+this.launchClosing,
           'dinnerTime':this.dinnerOpening+'~'+this.dinnerClosing,
+      }).then(response => {
+        if(response === true) {
+          alert('매장등록이 완료되었습니다.');
+          this.$router.push({path:'/'});
+        } else {
+          alert('매장등록이 실패하였습니다..');
+        }
+      }).catch(error => {
+        alert('매장등록이 실패하였습니다..');
+        console.log('error', error);
       })
-      //   .then(response => {
-      //     if(response.data.success === true){
-      //       this.successMessage = "회원가입이 완료되었습니다."
-      //       this.$router.push({name: 'login', params: {dataSuccessMessage: this.successMessage, appendToast: true}})
-      //     } else if(response.data.success !== true){
-      //       if(response.data.errorType === 'password_confirm'){
-      //         alert(response.data.data.message.confirm_password)
-      //         return false
-      //       }
-      //       console.log(response)
-      //       alert(response.data.data.message)
-      //     }
-      //   })
-      //   .catch(error => {
-      //     console.log(error)
-      //     // console.log(Object.values(error.response.data.errors))
-      //     // this.serverErrors = Object.values(error.response.data.error)
-      //   })
     },
 
     onSubmit() {
-      // this.$validator.validateAll().then((result) => {
-      //   if (result) {
-      // eslint-disable-next-line
       this.register();
-      // }
-
-      // alert('Correct them errors!');
-      // });
     },
     addressReg(data) {
       this.zip = data.zonecode;
@@ -201,23 +183,6 @@ export default {
     },
     openPopup() {
       this.popup = true;
-      // console.log(event);
-
-              //
-              // this.zip = data.zonecode;
-              // this.address1 = data.roadAddress;
-
-          // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-          // 우편번호와 주소 정보를 해당 필드에 넣고, 커서를 상세주소 필드로 이동한다.
-
-          // document.getElementById('zipcode6').value = data.postcode;
-      //     document.getElementById('zipcode').value = data.zonecode;
-      //     document.getElementById('address1').value = data.roadAddress;
-      //     this.zip = data.zonecode;
-      //     this.address1 = data.roadAddress;
-      //     console.log(this.zip);
-      //     console.log(this.address1);
-
     },
   }
 }

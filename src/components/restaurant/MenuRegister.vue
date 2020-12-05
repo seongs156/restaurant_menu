@@ -130,6 +130,14 @@
           breakfastMenu:this.breakfastMenu,
           lunchMenu:this.lunchMenu,
           dinnerMenu:this.dinnerMenu,
+          timestamp:new Date(),
+        }).then(response => {
+          if(response === true) {
+            alert('등록이 안료되었습니다.');
+          }
+        }).catch(error => {
+          alert('등록이 실패하였습니다..');
+          console.log('error', error);
         })
       }
     }
