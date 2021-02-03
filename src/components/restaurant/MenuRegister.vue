@@ -146,6 +146,4 @@
 
 <style lang="scss" scoped>
 
-  @import "@/assets/sass/app.scss";
-
 </style>

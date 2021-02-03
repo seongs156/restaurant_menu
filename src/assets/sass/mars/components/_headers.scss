@@ -1,0 +1,135 @@
+// GLOBAL HEADERS =========================================================== //
+.header {
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index: 100;
+  @include transition;
+
+  &.is-fixed {
+    background-color: $off-white-color;
+
+    .header__nav {
+      padding: 1rem 0;
+    }
+  }
+
+  &__nav {
+    position:relative;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+
+    @include transition;
+  }
+
+  &__logo a {
+    color: $body-text-color;
+    font-size: $h2;
+    font-weight: $bold-weight;
+
+    @include respond(lg) {
+      font-size: 3.5rem;
+    }
+
+  }
+
+  &__navitems {
+    position: fixed;
+
+    height:100%;
+    width:50%;
+    top:0;
+    left:0;
+    background-color: $off-white-color;
+    padding:4rem 0;
+
+    transform: translateX(-100%);
+
+    @include transition($property: transform);
+
+    &.is-showing {
+      transform: translateX(0);
+    }
+
+    @include respond(lg) {
+      position: initial;
+      transform: translateX(0);
+      background-color: transparent;
+      padding:0;
+      height:auto;
+
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__list {
+    a {
+      color: $body-text-color;
+      display:block;
+      padding: 1rem;
+
+      &:hover {
+        color: $accent-color;
+      }
+
+    }
+    &.active a {
+      color: $accent-dark-color;
+    }
+  }
+
+  &__search {
+    .search-icon {
+      font-size:3rem;
+      cursor:pointer;
+    }
+  }
+
+  &__mobile {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    @include respond(lg){
+      display:none;
+    }
+
+
+    .line {
+      width: 100%;
+      position:absolute;
+      height:0.3rem;
+      background-color: $body-text-color;
+      right:0;
+      top:33%;
+
+      @include transition;
+
+      &:nth-child(1) {
+        height:0.32rem;
+      }
+
+      &:nth-child(2) {
+        width:80%;
+        top:50%;
+      }
+
+      &:nth-child(3) {
+        width: 60%;
+        top:67%;
+      }
+    }
+
+    &:hover .line {
+      background-color: $accent-color;
+      width: 100%;
+
+    }
+  }
+}

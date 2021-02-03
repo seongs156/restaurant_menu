@@ -1,0 +1,201 @@
+// HOMEPAGE STYLING -------------------//
+.position-relative{
+  position: relative;
+}
+
+.indicator{
+  position: absolute;
+  bottom:-14rem;
+  z-index: 12;
+  display: none;
+
+  @include respond(lg) {
+    display: block;
+  }
+}
+
+.hero {
+  height:100vh;
+  position: relative;
+  overflow: hidden;
+
+  background: {
+    image: url('/static/images/mars/mobile-hero-background.jpg');
+    size:cover;
+    position: center center;
+    repeat: no-repeat;
+  }
+
+  @include respond(md) {
+    background-image: url('/static/images/mars/tablet-hero-background.jpg');
+  }
+
+  @include respond(lg) {
+    background-image: url('/static/images/mars/desktop-hero-background.jpg');
+    display:flex;
+    align-items: center;
+  }
+
+  &__content {
+    width:100%;
+    text-align: center;
+    padding-top:15rem;
+
+    @include respond(md){
+      padding-top:35rem;
+    }
+
+    @include respond(lg){
+      padding-top:0;
+      text-align: left;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 4rem;
+
+    .light {
+      font-weight: $light-weight;
+      font-size: $h3;
+
+      @include respond(md){
+        padding-top:3rem;
+      }
+
+      span {
+        color:$accent-color;
+      }
+    }
+
+    .regular {
+      font-size: $h2;
+      font-weight: $regular-weight;
+      @include respond(md){
+        padding-top:3.5rem;
+      }
+    }
+
+    .bold {
+      @include respond(md){
+        padding-top:4.5rem;
+      }
+    }
+
+  }
+
+  &__cta {
+    display:flex;
+    flex-direction: column;
+
+    .button--outline {
+      margin-top:2rem;
+    }
+    @include respond(md){
+      display: block;
+      .button--outline {
+        margin-top:0;
+        margin-left:2rem;
+      }
+    }
+  }
+
+  .indicator{
+    left:50%;
+    transform: translateX(-50%);
+    display:block;
+
+    @include respond(lg) {
+      left:0;
+    }
+  }
+}
+
+//PORTFOLIO SECTION
+.portfolio {
+  position:relative;
+  @include respond(lg) {
+    height:100vh;
+    overflow: hidden;
+  }
+
+  &__content {
+    .card{
+      height:30rem;
+
+      @include respond(md) {
+        height:50rem;
+      }
+
+      @include respond(lg) {
+        height:50vh;
+      }
+    }
+
+    .indicator {
+      right:4rem;
+      bottom:2rem;
+    }
+  }
+}
+
+//ABOUT SECTION STYLING
+.about {
+  background: {
+    image: url('/static/images/mars/mobile-about-background.jpg');
+    position: center center;
+    size: cover;
+    repeat: no-repeat;
+  }
+
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 50rem;
+
+  @include respond(md) {
+    background-image: url('/static/images/mars/tablet-about-background.jpg');
+    padding-bottom: 60rem;
+  }
+
+  @include respond(lg) {
+    background-image: url('/static/images/mars/desktop-about-background.jpg');
+    text-align: left;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+  }
+
+  &__content {
+    width:100%;
+  }
+
+  .indicator {}
+  @include respond(lg) {
+    left:0;
+  }
+}
+
+.contact {
+
+  position:relative;
+  &__content {
+    width: 100%;
+  }
+
+  .dflex {
+    @include respond(md) {
+      display: flex;
+
+      .form__group:nth-child(2) {
+        margin-left: 2rem;
+      }
+    }
+  }
+
+  .indicator{
+    @include respond(lg) {
+      right: 0;
+      bottom: -6rem;
+    }
+  }
+}

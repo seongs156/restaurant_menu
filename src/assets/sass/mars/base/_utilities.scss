@@ -1,0 +1,17 @@
+// ============================== UTILITIES (HELPER CLASSES) ========================================== //
+.default-section-spacing {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.section-heading {
+  margin-bottom: 8rem;
+}
+
+.dflex {
+  display:block;
+
+  @include respond(lg) {
+    display:flex;
+  }
+}

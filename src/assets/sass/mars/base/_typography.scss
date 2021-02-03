@@ -1,0 +1,27 @@
+// ============================== TYPOGRAPHY ========================================== //
+//https://fonts.google.com/specimen/Poppins?query=popp&sidebar.open=true&selection.family=Poppins:wght@300;400;700
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+p {
+  margin-bottom: 1.6rem;
+}
+
+h1,
+h2,
+h3 {
+  color: inherit;
+  font-weight: $bold-weight;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: $h1;
+}
+
+h2 {
+  font-size: $h2;
+}
+
+h3 {
+  font-size: $h3;
+}

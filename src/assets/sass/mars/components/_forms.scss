@@ -1,0 +1,67 @@
+// FORMS ================================= //
+.form {
+
+  &__group {
+    width: 100%;
+    position:relative;
+    margin-bottom:2rem;
+  }
+
+  &__label {
+    margin-bottom: 1rem;
+    display:inline-block;
+
+    span {
+      color: $danger-color;
+    }
+  }
+
+  &__input {
+    display: block;
+    outline: none;
+    width: 100%;
+    padding: $button-padding;
+    background-color:transparent;
+    font-size:1.6rem;
+    @include border;
+    @include transition;
+
+    &:hover,
+    &:focus {
+      border-color: $accent-color;
+    }
+
+    &.is-invalid {
+      border-color: $danger-color;
+      animation: shake 0.25s ease-in-out forwards;
+    }
+  }
+
+  &__textarea {
+    resize:none;
+    height: 20rem;
+    font-family: inherit;
+  }
+
+  .error {
+    color: $danger-color;
+    font-size:1.4rem;
+    display:none;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(1rem);
+  }
+  75% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    transform: translateX(0);
+
+  }
+}

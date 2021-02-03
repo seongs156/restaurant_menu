@@ -1,0 +1,41 @@
+// ============================== VARIABLES ========================================== //
+
+/***************  COLOR SCHEME  ***************/
+$accent-color: #fdc646;
+$accent-dark-color: #e7a304;
+$body-text-color: #1c0f13;
+$footer-bg-color:#00072d;
+$off-white-color:#f8f9f9;
+$light-gray-color:#e4e5e7;
+$danger-color: #842722;
+$white-color:#ffffff;
+
+/***************  TYPOGRAPHY  ***************/
+$font-family: "Poppins", sans-serif;
+
+// Font weight
+$light-weight: 300;
+$regular-weight:400;
+$bold-weight: 700;
+
+// Base font size
+$base-font-size-sm: 62.5%; // 10 / 16
+$base-font-size-lg: 75%; // 12 / 16
+
+// Font sizes
+$h1: 4rem; // 40px
+$h2: 3rem; // 30px
+$h3: 2.5rem; // 25px
+
+// buttons
+$button-padding: 1.6rem 2rem;
+
+// GRID LAYOUT ------------------//
+// breakpoint
+$md: 34.5625em; // 553px / 16px
+$lg: 56.3125em; // 901px / 16px
+
+// container
+$width-container-sm: 90%;
+$width-container-md: 85%;
+$width-container-lg: 102.8rem; // 1233px - 1233px (desired max-width) / 12px (base font size) ~ 102.8rem

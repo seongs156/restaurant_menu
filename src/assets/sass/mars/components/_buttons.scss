@@ -1,0 +1,29 @@
+// BUTTONS ==================================================== //
+.button,
+button[type="submit"]{
+  cursor:pointer;
+  @include border($color:$accent-color);
+  padding:$button-padding;
+  background-color: $accent-color;
+  color:$off-white-color;
+  outline:none;
+
+  @include transition;
+
+  &:hover {
+    background-color: $accent-dark-color;
+    border-color:$accent-dark-color;
+    color:$off-white-color;
+  }
+
+  &.button--outline{
+    background-color:$off-white-color;
+    color:$accent-color;
+
+    &:hover {
+      background-color: $accent-dark-color;
+      border-color:$accent-dark-color;
+      color:$off-white-color;
+    }
+  }
+}

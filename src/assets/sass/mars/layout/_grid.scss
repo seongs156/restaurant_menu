@@ -1,0 +1,47 @@
+// ============================== CUSTOM GRID ========================================== //
+.container {
+  width: $width-container-sm;
+  margin: 0 auto;
+
+  @include respond(md) {
+    width: $width-container-md;
+  }
+
+  @include respond(lg) {
+    max-width: $width-container-lg;
+  }
+}
+
+.row {
+  display:flex;
+  flex-wrap:wrap;
+
+  [class*="flex-"] {
+    width:100%;
+    max-width:100%;
+  }
+}
+
+.flex-3-of-12 {
+  @include respond(md) {
+    flex:0 0 percentage(6 / 12);
+    max-width: percentage(6 / 12);
+  }
+
+  @include respond(lg) {
+    flex:0 0 percentage(3 / 12);
+    max-width: percentage(3 / 12);
+  }
+}
+
+.flex-6-of-12 {
+  @include respond(lg) {
+    flex:0 0 percentage(6 / 12);
+    max-width: percentage(6 / 12);
+  }
+}
+
+
+// 0 -552 - default mobile
+// tablet portrait  - 552px
+// tablet landscope (laptop - large desktop) - 901px

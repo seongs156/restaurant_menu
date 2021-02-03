@@ -1,477 +1,425 @@
 <template>
-  <div class="header-wrap">
-    <header class="with-background" id="topnav" >
-      <div id="logo-header" class="flex justify-center">
+  <div>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-      </div>
-      <div class="container" id="nav-wrap">
-        <ul>
-          <li class="category">
-            <router-link :to="{ name: 'RestaurantList'}">매장 리스트</router-link>
-            <router-link :to="{ name: 'RestaurantRegister'}">매장 등록</router-link>
-            <router-link :to="{ name: 'MenuRegister'}">메뉴 등록</router-link>
-          </li>
-<!--          <li class="category">-->
-<!--            <router-link :to="{ name: 'todo'}">할일</router-link>-->
-<!--          </li>-->
-<!--          <li class="category">-->
-<!--            <router-link :to="{ name: 'shop'}">SHOP</router-link>-->
-<!--          </li>-->
-        </ul>
-        <ul>
+    <header class="header">
+      <div class="container">
 
-<!--          <li class="category" v-if="!loggedIn">-->
-<!--            <router-link :to="{ name: 'login'}">로그인</router-link>-->
-<!--          </li>-->
-<!--          <li class="category" v-if="!loggedIn">-->
-<!--            <router-link :to="{ name: 'register'}">회원가입</router-link>-->
-<!--          </li>-->
-<!--          <li v-if="loggedIn">-->
-<!--            <router-link :to="{ name: 'admin'}">관리자</router-link>-->
-<!--          </li>-->
-<!--          <li class="category" id="my-shopping" v-if="loggedIn" @click="myShoppingBar">-->
-<!--            <a href="#">나의쇼핑</a>-->
-<!--            <ul id="pc-nav-sub">-->
-<!--              <li><router-link :to="{ name: 'cart'}">카트</router-link></li>-->
-<!--              <li><a href="#">내정보</a></li>-->
-<!--            </ul>-->
-<!--          </li>-->
-<!--          <li class="category" v-if="loggedIn">-->
-<!--            <router-link :to="{ name: 'logout'}">로그아웃</router-link>-->
-<!--          </li>-->
-        </ul>
-      </div>
-    </header>
-    <div id="mobile-nav">
-      <header class="flex items-center">
-        <div class="">
-          <div class="menu-toggle" @click="navOpen()">
-            <div class="hamburger"></div>
+        <nav class="header__nav">
+
+          <div class="header__logo">
+            <router-link :to="{ path: '/'}">Menu</router-link>
           </div>
-        </div>
-        <div class="landing-search-icon">
-          <div class="cart grid-center" id="mobile-cart">
-            <a href=""></a>
-          </div>
-        </div>
-        <div class="landing-logo">
 
-        </div>
-        <div class="grid-center">
-          <div class="grid-center">
-
-            <a href="">
-              <span class="cart-count"><span></span></span>
-            </a>
-          </div>
-        </div>
-
-        <nav class="site-nav">
-          <ul>
-
-            <li class="category" v-if="loggedIn">
-              <router-link :to="{ name: 'myinfo'}">내 정보</router-link>
-              <router-link :to="{ name: 'logout'}">로그아웃</router-link>
+          <ul class="header__navitems">
+            <li class="header__list">
+              <router-link :to="{ name: 'RestaurantList'}">매장 리스트</router-link>
             </li>
-          </ul>
-        </nav>
-      </header>
-    </div>
+            <li class="header__list">
+              <router-link :to="{ name: 'RestaurantRegister'}">매장 등록</router-link>
+            </li>
+            <li class="header__list">
+              <router-link :to="{ name: 'MenuRegister'}">메뉴 등록</router-link>
+            </li>
+            <li class="header__list"></li>
+
+          </ul><!-- .header__navitems ends -->
+
+<!--          <div class="header__search">-->
+
+<!--            <i @click="searchShow()" class="ri-search-line search-icon" id="search-form"></i>-->
+
+<!--            <form action="" class="form form&#45;&#45;search" id="form&#45;&#45;search">-->
+
+<!--              <div class="form__group">-->
+<!--                <input type="text" class="search" id="search" placeholder="Search...">-->
+<!--                <i @click="searchClose()" class="ri-close-line" id="close-search"></i>-->
+<!--              </div>-->
+
+<!--            </form>&lt;!&ndash;  .form ends  &ndash;&gt;-->
+
+<!--          </div>&lt;!&ndash;  .header__search ends  &ndash;&gt;-->
+
+          <div class="header__mobile" @click="menuShow()">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div> <!-- .header__mobile ends -->
+        </nav><!-- .header__nav ends -->
+
+      </div>
+    </header><!-- header ends -->
+    <!-- SITE HEADER ENDS HERE-->
+    <!-- MAIN STARTS -->
+    <main>
+
+      <!-- HERO SECTION START  -->
+      <section class="hero">
+
+        <div class="hero__content">
+
+          <div class="container position-relative">
+
+            <h1 class="hero__heading">
+<!--              <span class="light">Guro<span>.</span></span>-->
+<!--              <br>-->
+<!--              <span class="regular">Restaurant Menu</span>-->
+<!--              <br>-->
+              <span class="bold">식단을 확인하세요!</span>
+            </h1><!-- .hero__heading ends -->
+
+            <div class="hero__cta">
+
+              <router-link class="button" :to="{ name: 'RestaurantList'}">리스트</router-link>
+              <router-link class="button button--outline" :to="{ name: 'MenuRegister'}">메뉴등록</router-link>
+<!--              <a href="" class="button button&#45;&#45;outline">메뉴등록</a>-->
+
+            </div><!-- hero__cta ends -->
+            <div class="indicator">
+<!--              <img src="/static/images/mars/indicator.png" alt="">-->
+            </div>
+          </div><!-- .container ends -->
+
+        </div><!--  .hero__content ends -->
+
+      </section><!-- .hero ends -->
+      <!-- HERO SECTION ENDS  -->
+
+      <!-- PORTFOLIO SECTION STARTS-->
+      <section class="portfolio">
+
+        <div class="portfolio__content">
+          <div class="row">
+
+            <div class="flex-3-of-12">
+
+              <div class="card">
+                <img src="/static/images/mars/portfolio-1.jpg" alt="" class="card__image">
+                <div class="card__overlay">
+
+                  <div class="portfolio__info">
+                    <h3>Project name</h3>
+                    <a href="" class="button">View more</a>
+                  </div>
+
+                </div><!-- .card__overlay ends -->
+              </div><!-- .card ends -->
+
+            </div><!-- .flex-* ends-->
+
+            <div class="flex-3-of-12">
+
+              <div class="card">
+                <img src="/static/images/mars/portfolio-2.jpg" alt="" class="card__image">
+                <div class="card__overlay">
+
+                  <div class="portfolio__info">
+                    <h3>Project name</h3>
+                    <a href="" class="button">View more</a>
+                  </div>
+
+                </div><!-- .card__overlay ends -->
+              </div><!-- .card ends -->
+
+            </div><!-- .flex-* ends-->
+
+            <div class="flex-3-of-12">
+
+              <div class="card">
+                <img src="/static/images/mars/portfolio-3.jpg" alt="" class="card__image">
+                <div class="card__overlay">
+
+                  <div class="portfolio__info">
+                    <h3>Project name</h3>
+                    <a href="" class="button">View more</a>
+                  </div>
+
+                </div><!-- .card__overlay ends -->
+              </div><!-- .card ends -->
+
+            </div><!-- .flex-* ends-->
+
+            <div class="flex-3-of-12">
+
+              <div class="card">
+                <img src="/static/images/mars/portfolio-4.jpg" alt="" class="card__image">
+                <div class="card__overlay">
+
+                  <div class="portfolio__info">
+                    <h3>Project name</h3>
+                    <a href="" class="button">View more</a>
+                  </div>
+
+                </div><!-- .card__overlay ends -->
+              </div><!-- .card ends -->
+
+            </div><!-- .flex-* ends-->
+
+          </div><!-- .row ends -->
+
+          <div class="row">
+            <div class="flex-6-of-12">
+
+              <div class="card">
+                <img src="/static/images/mars/portfolio-7.jpg" alt="" class="card__image">
+                <div class="card__overlay">
+
+                  <div class="portfolio__info">
+                    <h3>Project name</h3>
+                    <a href="" class="button">View more</a>
+                  </div>
+
+                </div><!-- .card__overlay ends -->
+              </div><!-- .card ends -->
+            </div><!-- .flex-* ends-->
+
+            <div class="flex-3-of-12">
+
+              <div class="card">
+                <img src="/static/images/mars/portfolio-5.jpg" alt="" class="card__image">
+                <div class="card__overlay">
+
+                  <div class="portfolio__info">
+                    <h3>Project name</h3>
+                    <a href="" class="button">View more</a>
+                  </div>
+
+                </div><!-- .card__overlay ends -->
+              </div><!-- .card ends -->
+            </div><!-- .flex-* ends-->
+
+            <div class="flex-3-of-12">
+
+              <div class="card">
+                <img src="/static/images/mars/portfolio-6.jpg" alt="" class="card__image">
+                <div class="card__overlay">
+
+                  <div class="portfolio__info">
+                    <h3>Project name</h3>
+                    <a href="" class="button">View more</a>
+                  </div>
+
+                </div><!-- .card__overlay ends -->
+              </div><!-- .card ends -->
+            </div><!-- .flex-* ends-->
+
+          </div><!-- .row ends -->
+
+          <div class="indicator">
+            <img src="/static/images/mars/indicator.png" alt="">
+          </div>
+
+        </div><!--  .portfolio__content ends -->
+
+      </section><!-- .portfolio ends -->
+      <!-- PORTFOLIO SECTION ENDS-->
+
+      <!-- ABOUT SECTION STARTS -->
+      <section class="about default-section-spacing">
+
+        <div class="about__content">
+
+          <div class="container position-relative">
+
+            <div class="section-heading">
+              <h2>About me</h2>
+            </div>
+
+            <div class="row">
+
+              <div class="flex-6-of-12">
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dolores error eum fugit impedit
+                  incidunt magnam porro quidem tempora totam!</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus eveniet ipsam ipsum iste nobis
+                  quia ratione ut vitae voluptatum. Consequatur incidunt ipsa labore minima nam nemo non odit optio
+                  possimus quae. A commodi doloribus earum esse ex harum nemo nulla placeat. Culpa deleniti quam rerum
+                  voluptas! Culpa cum dolore dolorum ea eaque enim expedita iusto numquam, quae quod vero
+                  voluptatum.</p>
+
+              </div>
+
+            </div><!-- .row ends -->
+
+            <div class="indicator">
+              <img src="/static/images/mars/indicator.png" alt="">
+            </div>
+
+          </div><!-- .container ends -->
+
+        </div><!-- .about__content ends -->
+
+      </section><!-- .about ends-->
+      <!-- ABOUT SECTION ENDS -->
+
+      <!-- CONTACT SECTION STARTS -->
+      <section class="contact default-section-spacing">
+
+        <div class="container position-relative">
+
+          <div class="contact__content">
+
+            <div class="section-heading">
+              <h2>Contact me</h2>
+            </div><!-- .section-heading ends -->
+
+            <form v-on:submit.prevent="onSubmit" class="form" id="contact-form">
+
+              <div class="dflex">
+                <div class="form__group">
+                  <label for="fullName" class="form__label">Your name <span>*</span></label>
+                  <input type="text" id="fullName" value="" class="form__input required"
+                         data-validate-error="This field is required. Please enter your name"
+                         placeholder="Enter your full name">
+                  <span class="error">This is required</span>
+                </div><!-- .form__group ends -->
+
+                <div class="form__group">
+                  <label for="email" class="form__label">Your email address<span>*</span></label>
+                  <input type="email" id="email" value="" class="form__input required"
+                         data-validate-error="This field is required. Please enter your a valid email address"
+                         placeholder="Enter your email address">
+                  <span class="error"></span>
+                </div><!-- .form__group ends -->
+              </div><!-- .dflex ends -->
+
+              <div class="form__group">
+                <label for="subject" class="form__label">Your subject<span>*</span></label>
+                <input type="text" id="subject" value="" class="form__input required"
+                       data-validate-error="This field is required. Please enter your subject"
+                       placeholder="Enter your subject">
+                <span class="error"></span>
+              </div><!-- .form__group ends -->
+
+              <div class="form__group">
+                <label for="message" class="form__label">Your message<span>*</span></label>
+                <textarea id="message" cols="30" rows="10"
+                          data-validate-error="This field is required. Please enter your message"
+                          placeholder="Enter your message" class="form__input form__textarea required"></textarea>
+                <span class="error"></span>
+              </div><!-- .form__group ends -->
+
+              <div class="submit">
+                <button type="submit" class="button">Send message</button>
+              </div>
+
+            </form><!-- .form ends -->
+
+            <div class="indicator">
+              <img src="/static/images/mars/indicator.png" alt="">
+            </div>
+
+          </div><!-- .contact__content ends -->
+
+        </div><!-- .container ends -->
+
+      </section><!-- .contact ends -->
+      <!-- CONTACT SECTION ENDS -->
+
+    </main><!-- main ends -->
+    <!-- MAIN ENDS -->
+
+    <!-- FOOTER STARTS -->
+    <footer class="footer">
+
+      <div class="container">
+
+        <div class="dflex">
+
+          <div class="footer__copyright">&copy; 2020 - All Rights Reserved</div>
+
+          <div class="footer__social">
+            <a href=""><i class="ri-facebook-line"></i></a>
+            <a href=""><i class="ri-twitter-line"></i></a>
+            <a href=""><i class="ri-dribbble-line"></i></a>
+            <a href=""><i class="ri-linkedin-line"></i></a>
+          </div>
+        </div><!-- .dflex ends-->
+
+      </div><!-- .container ends -->
+
+    </footer>
+    <!-- FOOTER ENDS -->
   </div>
 
 </template>
+
 <script>
   export default {
-    data () {
+    name: "Mars",
+    data() {
       return {
-        scroll : '',
-        toggle : false,
-        shoppingBar : false
+        fullName: null,
+        email: null,
+        subject: null,
+        message: null,
       }
     },
-    computed: {
-      loggedIn() {
-        return this.$store.getters['user/loggedIn']
-        // return this.$store.getters['user/loggedIn']
-      }
+    created() {
+      window.addEventListener('scroll', this.handleScroll);
     },
-    created () {
-      // window.addEventListener('scroll', this.handleScroll);
+    destroyed() {
+      window.removeEventListener('scroll', this.handleScroll);
     },
     methods: {
-      handleScroll (event) {
-        var scrollTop = document.documentElement.scrollTop
+      // Opening menu
+      menuShow() {
+        let menu = document.querySelector('.header__navitems');
+        menu.classList.toggle('is-showing');
+      },
+      //opening search Form
+      searchShow() {
+        let searchForm = document.querySelector('#form--search');
+        searchForm.classList.add('show-search');
+      },
 
-        if (scrollTop > 49) {
-          // $('#logo-header').fadeOut(400);
-          document.querySelector('.with-background').style.transform  = 'translate3d(0px, -60px, 0px)';
-        } else {
-          // $('#logo-header').fadeIn(400);
-          document.querySelector('.with-background').style.transform = 'translate3d(0px, 0px, 0px)';
-        }
+      searchClose() {
+        let searchForm = document.querySelector('#form--search');
+        searchForm.classList.remove('show-search');
+
       },
-      navOpen(){
-        document.querySelector('.site-nav').classList.toggle('site-nav--open')
-        if(this.toggle == false){
-          this.toggle = true
-          document.querySelector('.menu-toggle').classList = 'menu-toggle open';
+      handleScroll(event) {
+        let scrolled = window.scrollY;
+        let header = document.querySelector('.header');
+        if (scrolled > 50) {
+          header.classList.add('is-fixed');
         } else {
-          document.querySelector('.menu-toggle').classList = 'menu-toggle';
-          this.toggle = false
+          header.classList.remove('is-fixed');
         }
+        // Any code to be executed when the window is scrolled
       },
-      myShoppingBar(){
-        this.shoppingBar = !this.shoppingBar
-        if(!this.shoppingBar){
-          document.getElementById('my-shopping-angle-up').style.display = 'none';
-          document.getElementById('my-shopping-angle-down').style.display = 'inline-block';
-          document.getElementById('pc-nav-sub').style.maxHeight = '0px';
-        } else {
-          document.getElementById('my-shopping-angle-up').style.display = 'inline-block';
-          document.getElementById('my-shopping-angle-down').style.display = 'none';
-          document.getElementById('pc-nav-sub').style.maxHeight = '200px';
-        }
+      onSubmit() {
+        let requiredFields = document.querySelectorAll('.form .required');
+
+        requiredFields.forEach((el, index) => {
+          let validationError = requiredFields[index].getAttribute('data-validate-error');
+          let errorHolder = requiredFields[index].nextElementSibling;
+          let inputValue = requiredFields[index].value;
+
+          if (inputValue === '') {
+            errorHolder.innerText = validationError;
+            errorHolder.style.display = 'block';
+            requiredFields[index].classList.add('is-invalid');
+          } else {
+            errorHolder.innerText = '';
+            errorHolder.style.display = '';
+            requiredFields[index].classList.remove('is-invalid');
+
+            inputValue = '';
+          }
+        });
       }
     }
   }
+
 </script>
-<style lang="scss" scoped>
-  /*@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css");*/
-  /*@import url('/node_modules/cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css');*/
 
-  #logo-header{
-    display: flex;
-    justify-content: center;
-  }
-  .header-wrap{
-    padding-bottom:121px;
-    @media (max-width: 625px) {
-      padding-bottom: 0px;
-    }
-  }
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding:1rem;
+<style lang="scss">
+  @import "@/assets/sass/restaurant.scss";
+
+  body {
+    margin: 0 !important;
   }
 
-  .left {
-    display:flex;
-    align-items: center;
-  }
-  .logo a {
-    color:#000;
-  }
-  .logo h1 {
-    font-size: 1.1rem;
-  }
-  .logo p {
-    font-size:1rem;
-  }
-  .nav {
-    display: flex;
-    align-items:center;
-  }
-  .nav li {
-    margin-right:1.2rem;
-  }
-
-  .nav li a {
-    font-size:14px;
-    font-weight:550;
-  }
-  .nav li:last-child a{
-    display:block;
-    background:#3cb46e;
-    color:#fff;
-    padding:0.5rem 0.6rem;
-    border-radius: 5px;
-    transition: filter 0.5s;
-  }
-  .nav li:last-child a:hover {
-    filter: brightness(85%);
-  }
-  .nav-search-form {
-    margin-left:1rem;
-  }
-  .nav-search-form input {
-    padding:0.7rem;
-    border-radius:20px;
-    border:none;
-    background-color:#eee;
-    width:600px;
-    font-size:0.9rem;
-    color:#333;
-  }
-  .nav-search-form input:focus{
-    background: #fff;
-  }
-
-  /* Category Nav */
-  .category-nav {
-    display:flex;
-    padding-left:0.6rem;
-    overflow: hidden;
-  }
-  .category-nav .category {
-    padding: 0.8rem;
-  }
-  .category a {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
-
-  }
-  #app {
-    font-family: 'Helvetica', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    font-size: 24px;
-    height: 100vh;
-  }
-  .flex-center {
-    display: flex;
-    justify-content: center;
-  }
-
-  /* Hero */
-
-  .hero {
-    height:600px;
-    background:url('/static/img/unsplash_search.jpg') no-repeat right center;
-    background-size:100% 770px;
-    width:100%;
-    position:relative;
-  }
-  .hero-overlay {
-    position:absolute;
-    background:rgba(0,0,0,0.4);
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-  }
-  .hero-container {
-    max-width: 60%;
-    margin: auto;
-  }
-  .hero-content {
-    height:600px;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-  }
-  .hero-content h1 {
-    font-size:4rem;
-    color:#fff;
-    z-index:2;
-  }
-  .hero-content p {
-    color:#fff;
-    z-index:2;
-    margin: 1rem 0;
-    line-height:1.5;
-  }
-  .hero-search-form {
-    z-index: 2;
-    margin: 1rem 0.6rem 0 0 ;
-  }
-  .hero-search-form input {
-    width: 100%;
-    padding: 1.2rem;
-    border-radius: 5px;
-    border:none;
-    font-size:0.9rem;
-    color:#000;
-  }
-  .trending-search-tags {
-    z-index:2;
-  }
-  .trending-search-tags a {
-    color:#999;
-    transition: 0.5s color;
-  }
-  .trending-search-tags a:hover{
-    color:#fff;
-  }
-  /* Media quries */
-  @media(max-width:900px) {
-    .nav-search-form {
-      display:none;
-    }
-    .hero{
-      background-size:200% 700px;
-    }
-    .hero-container {
-      max-width:90%;
-    }
-    .category-nav {
-      display:none;
-    }
-    .images {
-      margin:0.5rem;
-    }
-  }
-  /*.nav {*/
-  /*  display: flex;*/
-  /*  list-style: none;*/
-  /*  padding: 15px 0;*/
-  /*  margin: 0;*/
-  /*  justify-content: flex-end;*/
-  /*  background: #F5F8FA;*/
-  /*  border-bottom: 1px solid lightgrey;*/
-  /*  !*margin-bottom: 24px;*!*/
-  /*}*/
-  /*.nav a {*/
-  /*  color: #636b6f;*/
-  /*  padding: 0 25px;*/
-  /*  font-size: 14px;*/
-  /*  font-weight: 600;*/
-  /*  letter-spacing: .1rem;*/
-  /*  text-decoration: none;*/
-  /*  text-transform: uppercase;*/
-  /*}*/
-  // Auth Pages
-  label {
-    display: block;
-    margin-bottom: 4px;
-  }
-  .login-heading {
-    margin-bottom: 16px;
-  }
-  .form-control {
-    margin-bottom: 24px;
-  }
-  .mb-more {
-    margin-bottom: 42px;
-  }
-  .login-form {
-    max-width: 500px;
-    margin: auto;
-  }
-  .login-input {
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 16px;
-    outline: 0;
-    border-radius: 3px;
-    border: 1px solid lightgrey;
-  }
-
-  .server-error {
-    margin-bottom: 12px;
-    font-size: 16px;
-    padding: 10px 16px;
-    color: #a94442;
-    background: #F3DEDE;
-    border-radius: 4px;
-  }
-  .success-message {
-    background-color: #dff0d8;
-    color: #3c763d;
-    margin-bottom: 12px;
-    font-size: 16px;
-    padding: 10px 16px;
-    border-radius: 4px;
-  }
-
-
-
-  // CSS Spinner
-  .lds-ring-container {
-    position: absolute;
-    right: 50%;
-  }
-  .lds-ring {
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
-  }
-  .lds-ring div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    // margin: 6px;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
-  }
-  .lds-ring div:nth-child(1) {
-    animation-delay: -0.45s;
-  }
-  .lds-ring div:nth-child(2) {
-    animation-delay: -0.3s;
-  }
-  .lds-ring div:nth-child(3) {
-    animation-delay: -0.15s;
-  }
-  @keyframes lds-ring {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  .server-error{
-    margin-bottom:12px;
-    font-size:16px;
-    color:#a94442;
-    padding:10px 16px;
-    background:#F#DEDE;
-    border-radius: 4px;
-  }
-  #nav-wrap{
-    height:60px;
-    display:flex;
-    justify-content: space-between;
-  }
-  #nav-wrap li {
-    height:100%;
-    padding:0px 15px;
-    align-items: center;
-    display: grid;
-    margin:0;
-    text-align: center;
-    float: left;
-  }
-  #nav-wrap li a {
-    vertical-align: middle;
-  }
-  #nav-wrap ul {
-
-  }
-  #pc-nav-sub{
-    position:relative;
-    max-height: 0;
-    transition: max-height 0.3s ease-out;
-    overflow: hidden;
-    text-align: center;
-    width:120px;
-    background: azure;
-    margin-top:17px;
-  }
-
-  #pc-nav-sub li {
-    padding:5px 0;
-    text-align: center;
-    width:100%;
-  }
-  #pc-nav-sub li a {
-
-    font-weight:300;
-  }
-  /*#my-shopping:hover .sub {*/
-  /*  max-height:200px;*/
-  /*}*/
-  #my-shopping-angle-up{
-    display:none;
-  }
 </style>
