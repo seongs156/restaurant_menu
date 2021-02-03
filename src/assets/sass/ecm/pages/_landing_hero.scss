@@ -1,0 +1,174 @@
+main {
+  padding-top:11rem;
+  @include respond(lg) {
+    padding-top: 15.2rem;
+  }
+}
+
+.hero{
+  height:45rem;
+  overflow: hidden;
+  &__carousel {
+    > div {
+      height:100%;
+      .owl-carousel{
+        height:100%;
+      }
+    }
+    span{
+      display: none;
+    }
+    height: 100%;
+    position:relative;
+  }
+  .button{
+    position:absolute;
+    bottom: 2.5rem;
+    margin-left: -9.5rem;
+    left: 50%;
+  }
+
+  &__slide {
+    height: 45rem;
+    color: $off-white-color;
+    padding: 2.5rem 0  0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+  }
+
+  h1{
+    margin-bottom: $spacing-sm;
+  }
+
+  .athletic-sneakers{
+    background-image: linear-gradient(to right, rgba($primary-color, 0.7), rgba($primary-color, 0.7)),
+    url('/static/images/commerce/slide-bg-1.jpg');
+    .row{
+      margin:0;
+    }
+    @include respond(md){
+      padding-top: 2.5rem;
+    }
+    @include respond(lg){
+      .md-title{
+        font-size: 4.5rem;
+        padding-bottom:3rem;
+      }
+      padding-top: 0;
+      .row{
+        height:45rem;
+      }
+      .button{
+        position: initial;
+        bottom: 10rem;
+        margin-left: 0;
+        left: 10rem;
+      }
+    }
+  }
+
+  .athletic-sneakers__image{
+
+  }
+  .athletic-sneakers img {
+    width:60%;
+    margin: 0 auto;
+    padding-bottom:2rem;
+
+    @include respond(md) {
+      width:70%;
+      padding-bottom:0;
+    }
+    @include respond(lg) {
+      margin:0;
+      float:right;
+      width: 60%;
+    }
+  }
+
+  //Running shoe
+  .running-sneakers {
+    background-image: linear-gradient(to right, rgba($darker-red, 0.7), rgba($darker-red, 0.7)),
+    url('/static/images/commerce/slide-bg-2.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    @include respond(sm) {
+      .button{
+        bottom: -9rem;
+      }
+    }
+    @include respond(xl) {
+      justify-content: center;
+      .container{
+        display: flex;
+      }
+      .button{
+        position: initial;
+        margin-left:0;
+        margin-top:2rem;
+      }
+    }
+    .running-copy {
+      padding: 2rem 0 0 0;
+      @include respond(lg){
+        padding:0;
+        font-size: 4rem;
+      }
+    }
+
+    .running-sneakers__image img {
+      @include respond(sm) {
+        width: 33rem;
+        margin: 0 auto;
+      }
+      @include respond(xl) {
+        width: 60%;
+        margin: 0 auto;
+      }
+      @include respond(xl) {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+
+  }
+
+  //Running shoe
+  .casual-sneakers {
+    background-image: linear-gradient(to right, rgba($lighter-dark, 0.7), rgba($lighter-dark, 0.7)),
+    url('/static/images/commerce/slide-bg-3.jpg');
+
+    .md-title {
+      padding-bottom: 3rem;
+    }
+
+    @include respond(lg) {
+      padding:0;
+      display: flex;
+      align-items: center;
+      .md-title{
+        font-size: 5rem;
+        text-align: center;
+      }
+      .button{
+        position:initial;
+        margin-left:0;
+      }
+    }
+  }
+  .casual-sneakers img {
+    width: 21rem;
+    margin: 0 auto;
+    @include respond(md) {
+      width:38%;
+    }
+    @include respond(lg) {
+      width: 60%;
+    }
+  }
+}

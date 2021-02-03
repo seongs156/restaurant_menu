@@ -1,0 +1,13 @@
+
+//클릭시 테두리
+.form-control:focus{
+  box-shadow: 0 0 0 1px #495057;
+  border-color:#495057;
+}
+.form-control{
+  font-size:13px;
+  margin-bottom:0;
+}
+input::placeholder {
+  color: #e5e5e5;
+}

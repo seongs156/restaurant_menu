@@ -1,0 +1,48 @@
+.product-card {
+  position: relative;
+
+  .card__header i {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+
+  .card__header {
+    height: 20rem;
+    margin-bottom: 10rem;
+
+    @include respond(md) {
+      margin-bottom:8rem;
+    }
+    @include respond(lg) {
+      margin-bottom:4rem;
+    }
+    img {
+      width: auto;
+      margin: 0 auto;
+    }
+  }
+
+  .card__body {
+    margin-bottom: 2rem;
+
+    h3 {
+      text-transform: capitalize;
+      letter-spacing: 0;
+      margin-bottom: $spacing-xs;
+    }
+
+    .price {
+      font-weight: $bold-weight;
+      color: $accent-color;
+    }
+
+    .product-details {
+      display: flex;
+      justify-content: space-between;
+
+    }
+  }
+}

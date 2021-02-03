@@ -1,0 +1,36 @@
+// Importing Remix Icon
+@import url("https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css");
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+// Abstracts
+@import 'commerce/abstracts/variables';
+@import 'commerce/abstracts/mixins';
+
+// Base
+@import 'commerce/base/base';
+@import 'commerce/base/normalize';
+@import 'commerce/base/typography';
+@import 'commerce/base/utilities';
+
+// Layout
+@import 'commerce/layout/grid';
+@import 'commerce/layout/header';
+@import 'commerce/layout/footer';
+
+// Components
+@import 'commerce/components/buttons';
+@import 'commerce/components/cards';
+@import 'commerce/components/carousel';
+@import 'commerce/components/forms';
+@import 'commerce/components/modal';
+@import 'commerce/components/search';
+
+// Pages
+
+// Sections
+@import 'commerce/pages/landing_hero';
+@import 'commerce/pages/details';
+@import 'commerce/pages/category';
+@import 'commerce/pages/products';
+@import 'commerce/pages/promo';
+@import 'commerce/pages/blog';
+

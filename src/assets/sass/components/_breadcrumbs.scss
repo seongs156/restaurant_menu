@@ -1,0 +1,19 @@
+.breadcrumbs-wrap{
+  background: $light-gray-background;
+  box-shadow: 0 3px 2px -2px #cbd5e0;
+}
+.breadcrumbs {
+    //background: $light-gray-background;
+    //border-bottom: 1px solid $separator-color;
+
+    font-size:19px;
+    padding: 24px 0;
+    @media (max-width: 768px) {
+        padding: 14px 0;
+        height: 80px;
+    }
+    .breadcrumb-separator {
+        font-size: 14px;
+        color: lighten($text-color, 20%);
+    }
+}

@@ -1,0 +1,54 @@
+// SEARCH COMPONENT ==================================== //
+.form--search{
+  position: absolute;
+  width:100%;
+  height:100%;
+  top: 7.7rem;;
+  left:0;
+  display: flex;
+  //@include border($color:$danger-color);
+  align-items: center;
+  z-index: 25;
+
+  @include transition;
+
+  opacity: 0;
+  visibility: hidden;
+
+  &.show-search {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .form__group {
+    position: relative;
+    width: 100%;
+
+    i {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 4rem;
+      font-size:3rem;
+      cursor: pointer;
+    }
+  }
+
+  input {
+    background-color: $white-color;
+    display: block;
+    width: 100%;
+    padding: 2rem;
+    padding-right: 8rem;
+    outline: none;
+    font-size:2rem;
+
+    @include border($width:0.2rem, $color:$yellow-color);
+    @include transition;
+
+    &:hover,
+    &:focus {
+      border-color:$accent-color;
+    }
+  }
+}

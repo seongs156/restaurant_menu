@@ -1,0 +1,42 @@
+.category {
+  &__card {
+    display: flex;
+    align-items: center;
+    border: 0;
+
+    h2 {
+      margin-bottom: $spacing-sm;
+      color: $off-white-color;
+    }
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    height: 35rem;
+  }
+
+  .mens-category {
+    background-image: linear-gradient(to right, $primary-color,
+      rgba($primary-color, 0.7)), url('/static/images/commerce/mens.jpg');
+  }
+
+  .athletic-category {
+    background-image: linear-gradient(to right, $secondary-color,
+      rgba($secondary-color, 0.7)), url('/static/images/commerce/athletics.jpg');
+  }
+
+  .casual-category {
+    background-image: linear-gradient(to right, rgba($body-text-color, 0.7),
+      $body-text-color), url('/static/images/commerce/casual.jpg');
+  }
+
+  .women-category {
+    background-image: linear-gradient(to right, rgba($accent-color, 0.7),
+      $accent-color), url('/static/images/commerce/womens.jpg');
+
+    @include respond(lg) {
+      justify-content: flex-end;
+    }
+  }
+}

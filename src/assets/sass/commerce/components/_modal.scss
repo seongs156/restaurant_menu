@@ -1,0 +1,117 @@
+// MODALS ======================================== //
+.modal {
+  position: fixed;
+  z-index: 400;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  display: flex;
+  background-color: rgba($body-text-color, 0.9);
+
+  @include transition;
+  @include justify-align-center;
+
+  .close-modal {
+    font-size: 3rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+
+    .modal__content {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+
+      .promo-img img {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__content {
+    width: 90%;
+    background-color: $white-color;
+
+    @include respond(lg) {
+      width: 75%;
+      display: flex;
+      align-items: center;
+    }
+
+    @include respond(xl) {
+      width: 60%;
+    }
+
+    .promo-img {
+      position: relative;
+      height: 35rem;
+      padding: 4rem;
+      background-image: linear-gradient(to right, rgba($primary-color, 0.7), rgba($primary-color, 0.7)), url('/static/images/commerce/modal-bg.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      img {
+        width: auto;
+        height: 100%;
+        margin: 0 auto;
+      }
+
+      @include respond(lg) {
+        height: 50rem;
+        width: 50%;
+        max-width: 50%;
+
+        img {
+          position: absolute;
+          left: -16rem;
+        }
+      }
+
+      @include respond(lg) {
+        img {
+          left: -25rem;
+        }
+      }
+    }
+
+    .promo-newsletter {
+      padding: 4rem;
+
+      @include respond(lg) {
+        width: 50%;
+        max-width: 50%;
+      }
+
+      .form__group {
+        margin: 2rem 0;
+      }
+    }
+  }
+
+  &__content {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transform-origin: center;
+    @include transition;
+    transition-delay: 0.3s;
+
+    .promo-img img {
+
+      transform: translateX(-12rem);
+      transition: opacity 0.3s ease-out 0.6s, transform 0.3s ease-out 0.9s;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+// CARDS ======================================== //
+.card {
+  padding: $spacing-sm;
+  border-radius: $border-radius;
+  @include border($width:0.2rem);
+
+}

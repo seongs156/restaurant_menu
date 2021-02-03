@@ -1,0 +1,46 @@
+// BUTTONS ==================================================== //
+.button,
+button[type="submit"] {
+  font-size: 1.6rem;
+  padding: $button-padding;
+  text-align: center;
+  border: 0;
+  border-radius: $border-radius;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing;
+  display: inline-flex;
+  cursor: pointer;
+  @include justify-align-center;
+  @include transition;
+
+  i {
+    color: $off-white-color;
+    margin-left: 2rem;
+  }
+
+  &.button--default {
+    color: $off-white-color;
+    background-color: $accent-color;
+    border-bottom: 0.3rem solid $hover-accent-color;
+
+    &:hover {
+      border-radius: 0;
+      background-color: $hover-accent-color;
+    }
+  }
+
+  &.button--off-white{
+    color: $accent-color;
+    background-color: $off-white-color;
+    border-bottom: 0.3rem solid $hover-off-white-color;
+
+    &:hover {
+      border-radius: 0;
+      background-color: $hover-off-white-color;
+    }
+  }
+
+  &.button--block {
+    display:flex;
+  }
+}

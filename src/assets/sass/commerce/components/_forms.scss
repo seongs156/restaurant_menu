@@ -1,0 +1,16 @@
+// FORMS ================================= //
+.form {
+  &__input {
+    display: block;
+    width: 100%;
+    padding: 2rem;
+    background-color: transparent;
+    font-size: 1.6rem;
+    @include border($width: 0.2rem);
+    @include transition;
+
+    &:hover, &:focus {
+      border-color: $focus-color;
+    }
+  }
+}

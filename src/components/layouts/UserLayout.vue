@@ -1,11 +1,11 @@
 <template>
   <div>
-    <mars/>
-<!--    <header-component/>-->
-<!--    <router-view></router-view>-->
-    <!--    <transition name="router-animation" enter-active-class="animated fadeIn"-->
-    <!--                leave-active-class="animated fadeOut" mode="out-in">-->
-    <!--    </transition>-->
+<!--    <mars/>-->
+    <header-component/>
+    <router-view></router-view>
+        <transition name="router-animation" enter-active-class="animated fadeIn"
+                    leave-active-class="animated fadeOut" mode="out-in">
+        </transition>
   </div>
 </template>
 
@@ -16,8 +16,8 @@
   export default {
     name: "UserLayout",
     components: {
-      // HeaderComponent,
-      Mars
+      HeaderComponent,
+      // Mars
     }
   }
 </script>

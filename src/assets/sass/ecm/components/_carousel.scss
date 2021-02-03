@@ -1,0 +1,78 @@
+// CAROUSELS ============================= //
+.owl-carousel {
+  .owl-nav {
+    > div {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+      display:flex;
+      @include justify-align-center;
+      width:8rem;
+      height:6rem;
+
+
+      &.owl-next,
+      &.owl-prev {
+        background-color: transparent;
+        @include border($width: 0.2rem,$color:rgba($off-white-color, 0.7));
+        font-size: 3rem;
+        border-radius: $border-radius;
+        @include transition;
+
+        &:hover {
+          border-color:rgba($accent-color, 0.7);
+          background-color: transparent;
+          i {
+            color:rgba($accent-color, 1);
+
+          }
+        }
+
+        i {
+          color:rgba($off-white-color, 1);
+        }
+      }
+      &.owl-prev {
+        left:2rem;
+      }
+      &.owl-next {
+        right: 2rem;
+      }
+
+
+    }
+  }
+
+  // Dots navigation
+  .owl-dots {
+    margin-top: $spacing-sm;
+    display: flex;
+    @include justify-align-center;
+
+    .owl-dot {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: $off-white-color;
+      @include transition;
+
+      span {
+        display:none;
+      }
+      &.active {
+        background-color: $hover-accent-color;
+      }
+
+      &:not(:last-child) {
+        //@include border($color: red);
+        margin-right: 1.5rem;
+      }
+
+      @include respond(lg) {
+        width:1.5rem;
+        height:1.5rem;
+      }
+    }
+  }
+}

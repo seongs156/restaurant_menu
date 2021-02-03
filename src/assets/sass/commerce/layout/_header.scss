@@ -1,0 +1,375 @@
+//GLOBAL HEADERS =====================================//
+.header {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: $white-color;
+  @include transition;
+  .is-scrolled-disabled {
+    margin-top: -5rem;
+    //background-color: $body-text-color;
+
+    .header__nav {
+      //border-bottom-color: transparent;
+    }
+    @include transition;
+  }
+  .is-scrolled-able{
+    margin-top: 0;
+    @include transition;
+
+  }
+  &__top__menu{
+    ul {
+      display: flex;
+      margin-bottom:0;
+    }
+    ul li{
+      flex: 1;
+      height:5rem;
+      display:flex;
+      @include align-center;
+    }
+    ul li a {
+      width:100%;
+      text-align: center;
+      color:$body-text-color;
+      background: url('/static/img/bar_b_20.png') no-repeat 100% 50%;
+      font-size:1.5rem;
+    }
+    @include maxRespond(sm) {
+      width:100%;
+      margin:0;
+      padding:0;
+      ul li:last-child a {
+        background: none;
+      }
+    }
+    @include respond(md) {
+      margin: 0 auto;
+      ul{
+        display:block;
+      }
+      ul li.md__left {
+        float:left;
+      }
+      ul li.md__right {
+        float:right;
+      }
+      ul li.none-separator a {
+        background:none;
+      }
+      ul li a {
+        font-size: 1.4rem;
+        padding: 0 2rem;
+      }
+
+    }
+    @include respond(lg) {
+      ul li {
+        height:3.96rem;
+      }
+      ul li a {
+        font-size: 1.2rem;
+      }
+    }
+    @include respond(xl) {
+      ul li {
+        height:3.3rem;
+      }
+      ul li a {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  &__nav {
+    clear: both;
+    border-bottom: 0.2rem solid $off-white-color;
+    border-top: 0.2rem solid $off-white-color;
+    position: relative;
+  }
+
+  // Menu icon toggler
+  &__menu {
+    left:3rem;
+    display: flex;
+    align-items: center;
+
+    @include maxRespond(lg) {
+      position: absolute;
+
+    }
+    button {
+      background-color: transparent;
+    }
+
+    &--toggler {
+      position: relative;
+      width: 3rem;
+      height: 3.6rem;
+      overflow: hidden;
+
+      @include transition;
+
+      @include respond(md) {
+        margin-right:1.2rem;
+      }
+
+      &:hover {
+        .line:nth-child(1) {
+          top: 1.2rem;
+        }
+
+        .line:nth-child(2) {
+          transform: translate(100%, -50%);
+        }
+
+        .line:nth-child(3) {
+          bottom: 1.2rem;
+        }
+      }
+
+      &.active {
+        @include respond(lg) {
+          .line:nth-child(1) {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+          }
+
+          .line:nth-child(2) {
+            transform: translate(100%, -50%);
+          }
+
+          .line:nth-child(3) {
+            bottom: auto;
+            top:50%;
+            transform: translate(-50%, -50%) rotate(180deg);
+          }
+
+          transform: rotate(45deg);
+        }
+      }
+
+      .line {
+        position: absolute;
+        width: 95%;
+        height: 0.35rem;
+        background-color: $header-color;
+        left: 50%;
+        border-radius: 3rem;
+        transform: translateX(-50%);
+
+        @include transition;
+
+        &:nth-child(1) {
+          top: 0.75rem;
+        }
+
+        &:nth-child(2) {
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &:nth-child(3) {
+          bottom: 0.75rem;
+        }
+      }
+
+    }
+
+
+
+    span {
+      text-transform: uppercase;
+      font-size:2rem;
+      font-weight: $bold-weight;
+      color:$body-text-color;
+    }
+  }
+
+  // Logo
+  &__logo {
+    padding: $spacing-sm 0;
+    text-align: center;
+
+    a{
+      width: auto;
+      height: 4rem;
+    }
+
+    img {
+      height:100%;
+    }
+  }
+
+  //Extra
+  &__extra {
+    position: absolute;
+    right:3rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+
+    .search, .wishlist, .cart {
+      margin-left: auto;
+    }
+    .search, .wishlist{
+      .icon {
+        padding-right:2rem;
+      }
+    }
+
+    .icon {
+      position: relative;
+      text-align: right;
+      cursor: pointer;
+
+      &:hover {
+        animation: bounceOnce 0.5s ease-in-out forwards;
+      }
+
+      i {
+        font-size: 2.5rem;
+        color:$header-color;
+      }
+
+
+      span {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 0.4rem;
+        right: 0;
+        background-color: $accent-color;
+      }
+    }
+  }
+
+  // Megamenu
+  .megamenu {
+    position: fixed;
+    width: 85%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: $spacing-lg 0 $spacing-md;
+    overflow-y: auto;
+    background-color: $white-color;
+    z-index: 200;
+    transform: translateX(-100%);
+    @include boxShadow;
+    @include transition;
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    .close-megamenu {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 4.5rem;
+      cursor: pointer;
+    }
+
+    @include respond(lg) {
+      position: absolute;
+      width: 100%;
+      top: 102%;
+      height: auto;
+      max-height: 40rem;
+      box-shadow: none;
+      padding: $spacing-sm 0;
+      border-bottom: 0.4rem solid $primary-color;
+
+      background-image: url("/static/images/commerce/megamenu-bg.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      opacity: 0;
+      visibility: hidden;
+
+      //기울게 보이기
+      transform: perspective(100rem) translateX(0) rotateX(-25deg);
+      transform-origin: top center;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: perspective(100rem) translateX(0) rotateX(0);
+      }
+    }
+
+    ul h3 {
+      margin-bottom: $spacing-sm;
+    }
+
+    ul li a {
+      color: $body-text-color;
+      display: block;
+      font-size: 1.6rem;
+
+      &:hover {
+        color: $hover-accent-color;
+      }
+    }
+
+    ul li {
+      margin-bottom: 1rem;
+    }
+
+    ul li.sizes {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    ul button.size {
+      flex: 1;
+      margin-right: 1.5rem;
+      height: 4rem;
+      background-color: transparent;
+      @include border($width: 0.2rem);
+      border-radius: $border-radius;
+      @include transition;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        border-color: $hover-accent-color;
+      }
+
+      &.active {
+        background-color: $hover-accent-color;
+        color: $off-white-color;
+        border: transparent;
+      }
+    }
+
+  }
+}
+
+@keyframes bounceOnce {
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

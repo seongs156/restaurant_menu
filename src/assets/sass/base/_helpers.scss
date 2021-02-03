@@ -1,0 +1,45 @@
+.clearfix::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
+
+
+  .page-wrapper{
+    width:450px;
+  }
+
+  .container {
+    margin: auto;
+    max-width: 1200px;
+  }
+  .container-800 {
+    margin: auto;
+    max-width: 800px;
+  }
+
+
+
+
+
+  /********************admin*********************/
+  .admin-container-fluid{
+    margin-left: 80px;
+    width: calc(100% - 80px);
+    background:azure;
+    height:1000px;
+  }
+
+  .admin-body{
+    padding:40px 56px;
+  }
+
+
+  .w-30{
+    width:30%;
+  }
+
+  .clear-both{
+    clear:both;
+  }

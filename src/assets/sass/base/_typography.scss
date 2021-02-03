@@ -1,1 +1,94 @@
-// ============================== TYPOGRAPHY ========================================== //
+body {
+
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+h1, h2, .product-section-subtitle, .product-section-price {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+h1.stylish-heading {
+    margin-bottom: 60px;
+    position: relative;
+
+    &:before, &:after {
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 66px;
+      height: 1px;
+      background: $text-color;
+      content: '';
+      display: block;
+  }
+
+  &:after {
+    bottom: -14px;
+    top: auto;
+  }
+}
+
+h2 {
+    font-size: 22px;
+}
+
+//상품 제목
+.ecm-product-title{
+  font-size:24px;
+  color: #222222;
+  line-height: 32px;
+  word-break: keep-all;
+  overflow: hidden;
+}
+
+//상품 가격
+.ecm-product-price{
+  font-size:18px;
+  color: #000000;
+}
+
+//구분자 |
+.division-bar{
+  position:relative;
+}
+
+.division-bar:after{
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    margin-top: -6px;
+    width: 1px;
+    height: 12px;
+    background-color: #e9e9e9;
+    content: '';
+}
+
+.font-weight-bold{
+  font-weight: bold;
+}
+
+.head-font-size{
+  font-size:20px;
+}
+
+.large-font-size{
+
+}
+.middle-font-size{
+  font-size:16px;
+}
+
+.font-color-white{
+  color:white;
+}
+
+
