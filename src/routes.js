@@ -2,16 +2,8 @@
 const routes = [
 
   {
-    path: '/todo',
-    name: 'todo',
-    component: () => import('@/components/TodoList'),
-    meta: {
-      layout: 'UserLayout'
-    }
-  },
-  {
-    path: '/register',
-    name: 'RestaurantRegister',
+    path: '/restaurant-register',
+    name: 'restaurantRegister',
     component: () => import('@/components/restaurant/RestaurantRegister'),
     meta: {
       layout: 'UserLayout'
@@ -27,6 +19,14 @@ const routes = [
   },
   {
     path: '/',
+    name: 'RestaurantLanding',
+    component: () => import('@/components/restaurant/RestaurantLanding'),
+    meta: {
+      layout: 'UserLayout'
+    }
+  },
+  {
+    path: '/restaurant-list',
     name: 'RestaurantList',
     component: () => import('@/components/restaurant/RestaurantList'),
     meta: {
@@ -34,7 +34,7 @@ const routes = [
     }
   },
   {
-    path: '/menu_register',
+    path: '/menu-register',
     name: 'MenuRegister',
     component: () => import('@/components/restaurant/MenuRegister'),
     meta: {
@@ -42,7 +42,7 @@ const routes = [
     }
   },
   {
-    path: '/menu_view/:id',
+    path: '/menu-view/:id',
     name: 'MenuView',
     component:() => import('@/components/restaurant/MenuView'),
     meta: {

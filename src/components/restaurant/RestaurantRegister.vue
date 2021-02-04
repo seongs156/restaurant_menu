@@ -9,7 +9,7 @@
             @complete="addressReg($event)"
           ></vue-daum-postcode>
 
-          <h2 class="login-heading">Register</h2>
+          <h2 class="login-heading">식당등록</h2>
           <ValidationObserver v-slot="{ invalid,handleSubmit }">
             <form action="" @submit.prevent="onSubmit">
               <!--      <div v-if="successMessage" class="success-message">{{successMessage}}</div>-->
@@ -18,14 +18,14 @@
                   {{value[0]}}
                 </div>
               </div>
-              <ValidationProvider name="매장" rules="required|min:2|max:15" vid="shop" v-slot="{ errors }">
+              <ValidationProvider class="full-width" name="매장" rules="required|min:2|max:15" vid="shop" v-slot="{ errors }">
                 <label for="shop">매장<span class="validate-required">*</span></label>
                 <input type="text"
                        @keydown.space.prevent id="shop" minlength="3" maxlength="20" class="login-input form-control"
                        v-model="shop">
                 <span class="form-error">{{ errors[0] }}</span>
               </ValidationProvider>
-              <ValidationProvider name="매장코드" rules="required|min:2|max:15" vid="shopCode" v-slot="{ errors }">
+              <ValidationProvider class="full-width" name="매장코드" rules="required|min:2|max:15" vid="shopCode" v-slot="{ errors }">
                 <label for="shop">매장코드<span class="validate-required">*</span></label>
                 <input type="text"
                        @keydown.space.prevent id="shopCode" minlength="3" maxlength="20" class="login-input form-control"
@@ -33,30 +33,31 @@
                 <span class="form-error">{{ errors[0] }}</span>
               </ValidationProvider>
               <div class="address-box-wrap">
-
                 <label for="name">연락처<span class="validate-required">*</span></label>
-                <select size="sm" v-model="tel1" placeholder="50자 이내로 입력하세요." class="form-control tel-width">
-                  <option :value="number" v-for="(number,index) in telNumbers">{{number}}</option>
-                </select>
-                <span class="tel-dash"> - </span>
-                <input type="number" class="form-control d-inline tel-width" v-model="tel2"
-                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength="4" min="1" max="9999">
-                <span class="tel-dash"> - </span>
-                <input type="number" class="form-control d-inline tel-width" v-model="tel3"
-                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                       maxlength="4" min="1" max="9999">
+                <div class="tel-wrap">
+                  <select size="sm" v-model="tel1" placeholder="50자 이내로 입력하세요." class="form-control tel-width">
+                    <option :value="number" v-for="(number,index) in telNumbers">{{number}}</option>
+                  </select>
+                  <span class="tel-dash"> - </span>
+                  <input type="number" class="form-control d-inline tel-width" v-model="tel2"
+                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                         maxlength="4" min="1" max="9999">
+                  <span class="tel-dash"> - </span>
+                  <input type="number" class="form-control d-inline tel-width" v-model="tel3"
+                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                         maxlength="4" min="1" max="9999">
+                </div>
               </div>
 
 
-              <ValidationProvider name="비밀번호" rules="required|min:4|max:15" vid="password" v-slot="{ errors }">
+              <ValidationProvider class="full-width" name="비밀번호" rules="required|min:4|max:15" vid="password" v-slot="{ errors }">
                 <label for="password">비밀번호<span class="validate-required">*</span></label>
                 <input type="password" minlength="4" maxlength="15" @keydown.space.prevent name="password" id="password"
                        :class="{'input-error':errors[0]}" class="login-input form-control" v-model="password">
                 <span class="form-error">{{ errors[0] }}</span>
               </ValidationProvider>
 
-              <ValidationProvider name="비밀번호 확인" rules="required|min:4|max:15|confirmed:password" v-slot="{ errors }">
+              <ValidationProvider class="full-width" name="비밀번호 확인" rules="required|min:4|max:15|confirmed:password" v-slot="{ errors }">
                 <label for="confirm_password">비밀번호 확인<span class="validate-required">*</span></label>
                 <input type="password" minlength="4" maxlength="15" @keydown.space.prevent name="confirm_password"
                        id="confirm_password" :class="{'input-error':errors[0]}" class="login-input form-control"
@@ -79,7 +80,7 @@
                   </ValidationProvider>
                 </div>
               </div>
-              <label for="">아침시간</label>
+              <label class="time" for="">아침시간</label>
               <div class="opening-time-wrap">
 
 
@@ -87,7 +88,7 @@
                 <div> ~</div>
                 <input type="text" class="form-control" v-model="breakfastClosing">
               </div>
-              <label for="">점심시간</label>
+              <label class="time" for="">점심시간</label>
               <div class="opening-time-wrap">
 
 
@@ -95,7 +96,7 @@
                 <div> ~</div>
                 <input type="text" class="form-control" v-model="launchClosing">
               </div>
-              <label for="">저녁시간</label>
+              <label class="time" for="">저녁시간</label>
               <div class="opening-time-wrap">
 
 
@@ -104,7 +105,7 @@
                 <input type="text" class="form-control" v-model="dinnerClosing">
               </div>
               <div class="">
-                <button type="submit" class="btn-submit" :disabled="invalid">회원가입</button>
+                <button type="submit" class="btn" :disabled="invalid">회원가입</button>
               </div>
             </form>
           </ValidationObserver>
@@ -208,25 +209,12 @@
     border: 1px solid #dedede;
   }
 
-  .form-control {
-    border-radius: inherit;
-  }
-
   select {
     display: inline-block;
   }
 
-  .addr-btn {
-    margin-left: 14px;
-    border-radius: inherit;
-    max-height: 33.5px;
-    height: 33.5px;
-  }
 
-  .zip-code {
-    width: 90px;
-    vertical-align: bottom;
-  }
+
 
   .addr-column {
     display: grid;
