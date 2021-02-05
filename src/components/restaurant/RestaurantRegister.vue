@@ -68,8 +68,9 @@
               <ValidationProvider name="우편번호" rules="" vid="zip" v-slot="{ errors }">
                 <label for="zipcode" class=" w-100">주소<span class="validate-required">*</span></label>
                 <input type="text" :value="zip" id="zipcode" class="form-control zip-code d-inline">
+                <button type="button" @click="openPopup" class="btn btn-dark addr-btn">우편번호</button>
+
               </ValidationProvider>
-              <button type="button" @click="openPopup" class="btn btn-dark addr-btn">우편번호</button>
               <div class="mt-10">
                 <div class="addr-column">
                   <ValidationProvider name="도로명 주소" rules="" vid="address1" v-slot="{ errors }">

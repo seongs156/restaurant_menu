@@ -11,8 +11,8 @@ import { store } from './store/store'
 import firebase from './firebase'
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 window.eventBus = new Vue()
 Vue.use(VueDaumPostcode)
