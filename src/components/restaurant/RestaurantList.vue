@@ -10,13 +10,9 @@
               <div class="now update" v-if="restaurant.dateUpdate">오늘 등록됨</div>
               <div class="now not-update" v-else>오늘 등록안됨</div>
             </b-card-text>
-
-
             <b-card-text>
               <router-link style="color:orange;" :to="{ name: 'MenuView',params:{id:restaurant.id}}">상세보기</router-link>
             </b-card-text>
-
-
           </b-card>
         </b-card-group>
       </div>

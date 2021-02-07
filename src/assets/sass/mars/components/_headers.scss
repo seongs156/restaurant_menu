@@ -38,6 +38,7 @@
 
   &__navitems {
     position: fixed;
+    margin-bottom: 0;
 
     height:100%;
     width:50%;
@@ -62,7 +63,7 @@
       height:auto;
 
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
     }
   }
 

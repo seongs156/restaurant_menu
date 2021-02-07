@@ -105,6 +105,8 @@ body{
     padding: 1rem 1rem 3rem 5rem;
     z-index:100;
     transform: translateX(-100%);
+    margin-bottom: 0;
+
     @include transition($property: transform);
 
     @include respond(lg) {

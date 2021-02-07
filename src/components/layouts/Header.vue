@@ -25,20 +25,21 @@
 
           </ul><!-- .header__navitems ends -->
 
-          <div class="header__search">
+          <!--<div class="header__search">
 
             <i @click="searchShow()" class="ri-search-line search-icon" id="search-form"></i>
 
-            <form action="" class="form form--search" id="form--search">
+            <form action="" class="form form&#45;&#45;search" id="form&#45;&#45;search">
 
               <div class="form__group">
                 <input type="text" class="search" id="search" placeholder="Search...">
                 <i @click="searchClose()" class="ri-close-line" id="close-search"></i>
               </div>
 
-            </form><!--  .form ends  -->
+            </form>&lt;!&ndash;  .form ends  &ndash;&gt;
 
-          </div><!--  .header__search ends  -->
+          </div>-->
+          <!--  .header__search ends  -->
 
           <div class="header__mobile" @click="menuShow()">
             <span class="line"></span>

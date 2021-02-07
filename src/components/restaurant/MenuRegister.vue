@@ -137,7 +137,7 @@ export default {
         timestamp: new Date(),
       }).then(response => {
         if (response === true) {
-          alert('등록이 안료되었습니다.');
+          alert('등록이 완료되었습니다.');
         }
       }).catch(error => {
         alert('등록이 실패하였습니다..');
