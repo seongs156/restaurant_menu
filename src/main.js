@@ -20,6 +20,7 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueRouter)
 Vue.use(VueCompositionAPI)
+Vue.use(firebase)
 
 Vue.config.productionTip = false
 

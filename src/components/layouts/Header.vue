@@ -129,7 +129,14 @@
 
 <style lang="scss">
   @import "@/assets/sass/restaurant.scss";
-
+/*  html {
+    @media (max-width: 768px) {
+      font-size:12px;
+    }
+    @media (min-width: 1024px) {
+        font-size:16px;
+    }
+  }*/
   body {
     margin: 0 !important;
   }
